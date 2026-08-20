@@ -1,26 +1,194 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.navbar {
+  background-color: #1e293b;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+.about-container {
+  max-width: 680px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.about-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.about-text {
+  color: #334155;
+  margin-bottom: 1.5rem;
+}
+
+.about-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-list {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  color: #334155;
+}
+
+.about-list li {
+  margin-bottom: 0.5rem;
+}
+
+.courses-container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.courses-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.course-card {
+  background-color: #ffffff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.course-card h2 {
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.course-code {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.course-credits {
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.badge-open {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-closed {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #fee2e2;
+  color: #991b1b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+main h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+main > p {
+  font-size: 1rem;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+main > ul {
+  margin: 1rem 0 2rem 1.5rem;
+  color: #475569;
+}
+
+main > ul li {
+  margin-bottom: 0.25rem;
+}
+
+main article {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+main article h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+main article p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
 }
