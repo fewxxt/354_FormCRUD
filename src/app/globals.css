@@ -1,3 +1,10 @@
+@import "tailwindcss";
+
+/* การกำหนดฟอนต์และคุณสมบัติพื้นฐาน */
+* {
+  font-family: var(--font-prompt), sans-serif !important;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,8 +18,9 @@ body {
   line-height: 1.6;
 }
 
+/* ส่วนแถบเมนูด้านบนของเว็บไซต์ */
 .navbar {
-  background-color: #1e293b;
+  background-color: #ffffff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -24,17 +32,18 @@ body {
 }
 
 .navLink {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .navLink:hover {
-  color: #38bdf8;
+  color: #3b1dc3;
   text-decoration: underline;
 }
 
+/* เนื้อหาหน้า(About) */
 .about-container {
   max-width: 680px;
   margin: 2.5rem auto;
@@ -74,6 +83,8 @@ body {
   margin-bottom: 0.5rem;
 }
 
+
+/* ส่วนตารางและข้อมูลค(Courses) */
 .courses-container {
   max-width: 900px;
   margin: 2.5rem auto;
@@ -120,6 +131,7 @@ body {
   font-weight: 500;
 }
 
+/* สถานะเปิด/ปิดการลงทะเบียน */
 .badge-open {
   display: inline-block;
   width: fit-content;
@@ -142,6 +154,7 @@ body {
   font-weight: 600;
 }
 
+/* จัดวางเลย์เอาต์ของบทความทั่วไป */
 main {
   max-width: 800px;
   margin: 2rem auto;
@@ -183,12 +196,816 @@ main article {
 main article h2 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 main article p {
-  color: #64748b;
+  color: #000000;
   font-size: 0.95rem;
   margin-bottom: 0.25rem;
+}
+
+/* การ์ดวงดนตรี */
+/* โครงสร้างการ์ดวงดนตรี */
+.band-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ส่วนแสดงภาพปกวง */
+.band-card-cover {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.band-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ส่วนกล่องข้อมูลภายใน */
+.band-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+/* หัวข้อการ์ดและจำนวนสมาชิก */
+.band-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.band-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+}
+
+.band-card-count {
+  font-size: 12px;
+  background-color: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #64748b;
+}
+
+.band-card-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin: 4px 0 0 0;
+}
+
+/* รายชื่อสมาชิกวง */
+.band-card-members {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.band-card-members-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.band-card-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ข้อมูลสมาชิกแต่ละคน */
+.band-member-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+/* รูปโปรไฟล์สมาชิก (Avatar) */
+.band-member-avatar-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.band-member-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* กรณีไม่มีรูปให้แสดงตัวอักษรแรก */
+.band-member-avatar-initial {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6366f1;
+}
+
+.band-member-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.band-member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.band-member-role {
+  font-size: 12px;
+  color: #6366f1;
+  margin-top: 2px;
+}
+
+/* การ์ดเล่นเพลงล่าสุดด้านล่าง */
+.band-latest-song-card {
+  margin-top: auto;
+  padding: 12px 16px;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.band-latest-song-info {
+  overflow: hidden;
+}
+
+.band-latest-song-label {
+  margin: 0;
+  font-size: 11px;
+  color: #6366f1;
+  font-weight: 700;
+}
+
+.band-latest-song-title {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ปุ่มเล่นเพลงพร้อม Effect สดใส */
+.band-play-button {
+  background-color: #6366f1;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.band-play-button:hover {
+  background-color: #4f46e5;
+}
+
+.band-play-button:active {
+  transform: scale(0.98);
+}
+
+/* โครงสร้างการ์ดหลัก พร้อม Hover Effect */
+.band-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.08);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.band-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px -4px rgba(99, 102, 241, 0.2);
+  border-color: #cbd5e1;
+}
+
+/* แถบสี Gradient ด้านบนสุดเพิ่มลูกเล่น */
+.band-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  z-index: 2;
+}
+
+/* ส่วนแสดงภาพปกวง */
+.band-card-cover {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  position: relative;
+}
+
+.band-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.band-card:hover .band-card-cover img {
+  transform: scale(1.05);
+}
+
+/* ส่วนกล่องข้อมูลภายใน */
+.band-card-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+/* หัวข้อการ์ดและจำนวนสมาชิก */
+.band-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.band-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.band-card-count {
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+  color: #3730a3;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.band-card-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin: 6px 0 0 0;
+  font-weight: 500;
+}
+
+/* รายชื่อสมาชิกวง */
+.band-card-members {
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 14px;
+}
+
+.band-card-members-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8b5cf6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.band-card-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ข้อมูลสมาชิกแต่ละคน */
+.band-member-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.band-member-item:hover {
+  background-color: #f8fafc;
+}
+
+/* รูปโปรไฟล์สมาชิก (Avatar) */
+.band-member-avatar-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e0e7ff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.band-member-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* กรณีไม่มีรูปให้แสดงตัวอักษรแรก */
+.band-member-avatar-initial {
+  font-size: 15px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.band-member-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.band-member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.band-member-role {
+  font-size: 12px;
+  color: #6366f1;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* การ์ดเล่นเพลงล่าสุดด้านล่าง */
+.band-latest-song-card {
+  margin-top: auto;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.band-latest-song-info {
+  overflow: hidden;
+}
+
+.band-latest-song-label {
+  margin: 0;
+  font-size: 11px;
+  color: #ec4899;
+  font-weight: 700;
+}
+
+.band-latest-song-title {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ปุ่มเล่นเพลงแบบ Gradient สดใส */
+.band-play-button {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transition: all 0.2s ease;
+}
+
+.band-play-button:hover {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.45);
+  transform: scale(1.03);
+}
+
+.band-play-button:active {
+  transform: scale(0.97);
+}
+
+/* Responsive Grid สำหรับจัดวางการ์ดในหน้าวงดนตรี */
+.band-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .band-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ตัวการ์ดหลักแบบ Glassmorphism สไตล์ดนตรี */
+.band-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15),
+              0 0 0 1px rgba(226, 232, 240, 0.6);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* แถบไฟนีออนส่องสว่างด้านบนสุด */
+.band-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6, #06b6d4);
+  background-size: 200% 100%;
+  z-index: 3;
+  transition: background-position 0.5s ease;
+}
+
+.band-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px -12px rgba(139, 92, 246, 0.3),
+              0 0 20px rgba(236, 72, 153, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.band-card:hover::before {
+  background-position: 100% 0;
+}
+
+/* ส่วนรูปปกวง พร้อม Visual Overlay Effect */
+.band-card-cover {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #0f172a;
+  position: relative;
+}
+
+.band-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+  filter: brightness(0.95);
+}
+
+.band-card:hover .band-card-cover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* ส่วนเนื้อหาในการ์ด */
+.band-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-grow: 1;
+}
+
+/* หัวข้อการ์ดและ Badge จำนวนสมาชิก */
+.band-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.band-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.band-card-count {
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(139, 92, 246, 0.12);
+  color: #7c3aed;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.band-card-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin: 6px 0 0 0;
+  font-weight: 500;
+}
+
+/* รายชื่อสมาชิกวง */
+.band-card-members {
+  border-top: 1px dashed rgba(203, 213, 225, 0.8);
+  padding-top: 16px;
+}
+
+.band-card-members-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #ec4899;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.band-card-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* สมาชิกแต่ละคน + Hover Micro-interaction */
+.band-member-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.band-member-item:hover {
+  background: rgba(243, 232, 255, 0.6);
+  transform: translateX(6px);
+}
+
+/* รูปสมาชิก (Avatar) ส่องแสงและหมุนเล็กน้อยเมื่อ Hover */
+.band-member-avatar-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.band-member-item:hover .band-member-avatar-box {
+  transform: scale(1.12) rotate(4deg);
+  border-color: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+.band-member-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.band-member-avatar-initial {
+  font-size: 15px;
+  font-weight: 800;
+  color: #7c3aed;
+}
+
+.band-member-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.band-member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  transition: color 0.2s ease;
+}
+
+.band-member-item:hover .band-member-name {
+  color: #6d28d9;
+}
+
+.band-member-role {
+  font-size: 12px;
+  color: #8b5cf6;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* กล่องการ์ดเพลงล่าสุดแบบ Glassmorphism */
+.band-latest-song-card {
+  margin-top: auto;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.band-card:hover .band-latest-song-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.band-latest-song-info {
+  overflow: hidden;
+}
+
+.band-latest-song-label {
+  margin: 0;
+  font-size: 11px;
+  color: #ec4899;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.band-latest-song-title {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ปุ่มเล่นเพลงแบบไฟนีออนพัลส์ (Glow Pulse) & Icon Animation */
+.band-play-button {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.35);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.band-play-button-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.band-play-button:hover {
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5),
+              0 0 15px rgba(139, 92, 246, 0.5);
+  transform: scale(1.06);
+}
+
+.band-play-button:hover .band-play-button-icon {
+  transform: translateX(2px) scale(1.2);
+}
+
+.band-play-button:active {
+  transform: scale(0.95);
+}
+
+.bands-header-container {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Badge แถบข้อความเล็กๆ ด้านบน */
+.bands-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(236, 72, 153, 0.1);
+  color: #ec4899;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+/* หัวข้อใหญ่แบบ Gradient */
+.bands-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #7c3aed 50%, #ec4899 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+/* คำอธิบายสั้นๆ ใต้หัวข้อ */
+.bands-subtitle {
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  padding: 1.5rem 2rem; 
+  
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
