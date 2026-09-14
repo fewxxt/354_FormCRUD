@@ -20,6 +20,6 @@ export const coursesData: Course[] = [
     code: '10301101',
     title: 'Computer Programming',
     credits: 3,
-    isOpen: false,
+    isOpen: false, 
   },
 ];

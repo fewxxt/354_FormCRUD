@@ -343,64 +343,96 @@ main article p {
   color: #6366f1;
   margin-top: 2px;
 }
-
-/* การ์ดเล่นเพลงล่าสุดด้านล่าง */
-.band-latest-song-card {
-  margin-top: auto;
-  padding: 12px 16px;
-  background-color: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+/* ==========================================
+   ตกแต่งกล่องเพลงล่าสุด (Latest Song Card)
+   ========================================== */
+.band-card-latest-song-card {
+  margin-top: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3e8ff 100%);
+  border: 1px solid #e9d5ff;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.05);
 }
 
-.band-latest-song-info {
-  overflow: hidden;
+.band-card-latest-song-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.band-latest-song-label {
-  margin: 0;
-  font-size: 11px;
-  color: #6366f1;
-  font-weight: 700;
-}
-
-.band-latest-song-title {
-  margin: 2px 0 0 0;
-  font-size: 14px;
+.band-card-latest-song-label {
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9333ea;
+  margin: 0;
+}
+
+.band-card-latest-song-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* ปุ่มเล่นเพลงทรงมน Gradient พร้อม Effect */
+.band-play-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 9999px; /* ทรงแคปซูลมน */
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.band-play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+  background: linear-gradient(135deg, #9333ea 0%, #db2777 100%);
+}
+
+.band-play-button:active {
+  transform: translateY(0);
+}
+
+.band-play-button-icon {
+  font-size: 0.75rem;
+}
+
+.band-card-latest-song-title {
+  /* ปรับขนาดฟอนต์ให้เท่ากับชื่อสมาชิก (.band-member-name) */
+  font-size: 0.95rem; 
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+
+  /* ตัดคำบรรทัดเดียว ใส่ ... เมื่อข้อความยาวเกิน */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ปุ่มเล่นเพลงพร้อม Effect สดใส */
-.band-play-button {
-  background-color: #6366f1;
-  color: #ffffff;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
+.band-card-latest-song-info {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.band-play-button:hover {
-  background-color: #4f46e5;
-}
-
-.band-play-button:active {
-  transform: scale(0.98);
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0; /* ช่วยให้ text-overflow ตัดคำได้ถูกต้องใน Flexbox */
+  flex: 1;
 }
 
 /* โครงสร้างการ์ดหลัก พร้อม Hover Effect */
@@ -1008,4 +1040,188 @@ main article p {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+/* คอนเทนเนอร์หลักของหน้า แสดงตรงกลางและจำกัดความกว้าง */
+.bands-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* ป้ายแสดงจำนวนวงดนตรีที่กำลังติดตามอยู่ */
+.following-count-badge {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 0.95rem;
+}
+
+/* คอนเทนเนอร์จัดวางแถบควบคุม (Search Input, Select Box, Reset Button) */
+.controls-container {
+  margin: 24px 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* รองรับการแสดงผลบนหน้าจอขนาดเล็ก (Mobile Responsive) */
+  align-items: center;
+}
+
+/* ช่องค้นหาชื่อวงดนตรี */
+.search-input {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  min-width: 260px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* เอฟเฟกต์เมื่อคลิกโฟกัสที่ช่องค้นหา */
+.search-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ตัวเลือกการเรียงลำดับข้อมูล (Dropdown) */
+.sort-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.sort-select:focus {
+  border-color: #2563eb;
+}
+
+/* ปุ่มสำหรับล้างเงื่อนไขการค้นหาและกรองข้อมูลทั้งหมด */
+.btn-reset {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-reset:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+/* ==========================================
+   Empty State (แสดงเมื่อค้นหาไม่พบข้อมูล)
+   ========================================== */
+.empty-state {
+  text-align: center;
+  padding: 64px 16px;
+  color: #6b7280;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  border: 1px dashed #d1d5db;
+  margin-top: 24px;
+}
+
+.empty-state-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.empty-state-description {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ==========================================
+   Band Card Component Styles (ปุ่ม Interaction บนการ์ด)
+   ========================================== */
+.band-card-actions {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+/* ปุ่มติดตาม (Default State: ยังไม่ได้ติดตาม) */
+.btn-follow {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #2563eb;
+  background-color: #ffffff;
+  color: #2563eb;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-follow:hover {
+  background-color: #eff6ff;
+}
+
+/* ปุ่มติดตาม (Active State: ติดตามแล้ว) */
+.btn-follow.followed {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-follow.followed:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* ปุ่มกด Like */
+.btn-like {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.btn-like:hover {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.btn-like:active {
+  transform: scale(0.96); /* เอฟเฟกต์ย่อเล็กน้อยเมื่อกดคลิก */
+}
+
+
+/*    CSS Grid สำหรับแสดงการ์ดเรียงกัน 3 คอลัมน์ */
+.bands-cards-grid {
+  display: grid;
+  /* กำหนดให้แบ่งเป็น 3 คอลัมน์เท่าๆ กัน (เมื่อหน้าจอกว้างพอ) */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; /* ระยะห่างระหว่างการ์ด */
+  margin-top: 24px;
+}
+
+/* ปรับให้รองรับหน้าจอขนาดกลางและเล็ก (Responsive Design) */
+@media (max-width: 1024px) {
+  .bands-cards-grid {
+    /* หน้าจอแท็บเล็ตแสดง 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bands-cards-grid {
+    /* หน้าจอมือถือแสดง 1 คอลัมน์ */
+    grid-template-columns: 1fr;
+  }
 }
