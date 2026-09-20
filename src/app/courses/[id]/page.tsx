@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { courses } from "@/data/coursesdata";
+import { coursesData } from "@/data/coursesdata";
 import type { Metadata } from "next";
 
 type CoursePageProps = {
