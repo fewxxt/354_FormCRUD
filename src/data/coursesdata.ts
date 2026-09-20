@@ -7,6 +7,7 @@ export const coursesData: Course[] = [
     title: 'Web Technology',
     credits: 3,
     isOpen: true,
+    instructor: "อาจารย์ผู้สอนรายวิชา",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const coursesData: Course[] = [
     title: 'Software Engineering',
     credits: 3,
     isOpen: true,
+    instructor: "อาจารย์ผู้สอนรายวิชา",
   },
   {
     id: 3,
@@ -21,5 +23,6 @@ export const coursesData: Course[] = [
     title: 'Computer Programming',
     credits: 3,
     isOpen: false, 
+    instructor: "อาจารย์ผู้สอนรายวิชา",
   },
 ];

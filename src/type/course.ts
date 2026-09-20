@@ -4,4 +4,5 @@ export type Course = {
   title: string;
   credits: number;
   isOpen: boolean;
+  instructor: string;
 };
