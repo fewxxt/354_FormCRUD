@@ -3,38 +3,38 @@ import { coursesData } from "@/data/coursesdata";
 import type { Metadata } from "next";
 
 type CoursePageProps = {
-  params: Promise<{ id: string }>; 
+  params: Promise<{ id: string }>;
 };
 
 export default async function CoursePage({ params }: CoursePageProps) {
   const { id } = await params;
-  // เติม: เมธอดของ Array ที่คืนสมาชิกตัวแรกที่ผ่านเงื่อนไข
-  const course = courses.find((item) => item.id === id); // ค้นหาข้อมูลรายวิชาที่มี id ตรงกับพารามิเตอร์ id ที่ส่งเข้ามา
+  const course = coursesData.find((item) => String(item.id) === String(id));
 
-  
-  // เติม: ฟังก์ชันที่สั่งให้แสดงหน้า 404
   if (!course) {
     notFound();
   }
 
   return (
     <article>
-      <h1>{course.name}</h1>
-      <p>รหัสวิชา {course.code}</p>
-      <p>หน่วยกิต {course.credit}</p>
-      <p>ผู้สอน {course.instructor}</p>
+      <h1>{course.title} ({course.code})</h1>
+      <p>หน่วยกิต: {course.credits}</p>
+      <p>ผู้สอน: {course.instructor}</p>
     </article>
   );
 }
 
-export async function generateMetadata(
-  { params }: CoursePageProps
-): Promise<Metadata> {
-  // เติม: คำสั่งที่ใช้รอค่าจาก Promise
+export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
   const { id } = await params;
-  const course = courses.find((item) => item.id === id);
+  const course = coursesData.find((item) => String(item.id) === String(id));
+
+  if (!course) {
+    return {
+      title: "ไม่พบรายวิชา",
+    };
+  }
 
   return {
-    title: course ? course.name : "ไม่พบรายวิชา",
+    title: course.title,
+    description: `รายวิชา ${course.title} รหัสวิชา ${course.code} สอนโดย ${course.instructor}`,
   };
 }

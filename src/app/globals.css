@@ -1749,3 +1749,128 @@ main article p {
 .btn-submit-primary:hover {
   background-color: #c0069c;
 }
+
+/* ==========================================
+   Course Form & Container Styles
+   ========================================== */
+
+/* การ์ดครอบฟอร์ม */
+.course-form-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+/* หัวข้อฟอร์ม */
+.course-form-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #065f46; /* เขียว Maejo Green */
+  margin-bottom: 1.25rem;
+}
+
+.title-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: #10b981;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+/* โครงสร้าง Grid ของช่องกรอกข้อมูล */
+.course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ช่อง Input */
+.course-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: #1f2937;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.course-input::placeholder {
+  color: #9ca3af;
+}
+
+.course-input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* กลุ่มปุ่มกด Action */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* ปุ่มบันทึก/อัปเดต */
+.btn-submit {
+  padding: 0.625rem 1.5rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: #047857;
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+/* ปุ่มยกเลิก */
+.btn-cancel {
+  padding: 0.625rem 1.25rem;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}

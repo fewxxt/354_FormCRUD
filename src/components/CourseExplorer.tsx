@@ -22,7 +22,7 @@ export default function CourseExplorer({ initialCourses }: CourseExplorerProps) 
     const newCourse: Course = {
       id: Date.now().toString(),
       code: draft.code,
-      name: draft.name,
+      title: draft.name,
       credit: Number(draft.credit) || 3,
       instructor: draft.instructor,
     };
@@ -30,17 +30,17 @@ export default function CourseExplorer({ initialCourses }: CourseExplorerProps) 
   }
 
   function handleDelete(id: string) {
-    setCourses(courses.filter((course) => course.id !== id));
+    setCourses(courses.filter((course) => String(course.id) !== String(id)));
   }
 
   function handleUpdate(id: string, draft: CourseDraft) {
     setCourses(
       courses.map((course) =>
-        course.id === id
+        String(course.id) === String(id)
           ? {
               ...course,
               code: draft.code,
-              name: draft.name,
+              title: draft.name,
               credit: Number(draft.credit) || course.credit,
               instructor: draft.instructor,
             }
@@ -50,11 +50,14 @@ export default function CourseExplorer({ initialCourses }: CourseExplorerProps) 
     setEditingId(null);
   }
 
-  const filteredCourses = courses.filter(
-    (c) =>
-      (c.name && c.name.toLowerCase().includes(keyword.toLowerCase())) ||
-      c.code.includes(keyword)
-  );
+  const filteredCourses = courses.filter((c) => {
+    const courseTitle = c.title || c.name || "";
+    const courseCode = c.code || "";
+    return (
+      courseTitle.toLowerCase().includes(keyword.toLowerCase()) ||
+      courseCode.toLowerCase().includes(keyword.toLowerCase())
+    );
+  });
 
   return (
     <div className="courses-container">
@@ -64,7 +67,7 @@ export default function CourseExplorer({ initialCourses }: CourseExplorerProps) 
           {editingId ? "แก้ไขข้อมูลรายวิชา" : "เพิ่มรายวิชาใหม่"}
         </h2>
         <CourseForm
-          initialData={courses.find((c) => c.id === editingId)}
+          initialData={courses.find((c) => String(c.id) === String(editingId))}
           onSubmit={(draft) =>
             editingId ? handleUpdate(editingId, draft) : handleCreate(draft)
           }
@@ -75,14 +78,14 @@ export default function CourseExplorer({ initialCourses }: CourseExplorerProps) 
       <div className="courses-header-row">
         <div>
           <h1 className="courses-page-title">
-            📚 รายวิชาทั้งหมด ({filteredCourses.length})
+            รายวิชาทั้งหมด ({filteredCourses.length})
           </h1>
           <p className="courses-page-subtitle">ค้นหาและจัดการข้อมูลรายวิชาในระบบ</p>
         </div>
 
         <input
           type="text"
-          placeholder="🔍 ค้นหาชื่อวิชา หรือ รหัสวิชา..."
+          placeholder="ค้นหาชื่อวิชา หรือ รหัสวิชา..."
           value={keyword}
           onChange={handleKeywordChange}
           className="courses-search-input"
@@ -95,8 +98,8 @@ export default function CourseExplorer({ initialCourses }: CourseExplorerProps) 
             <CourseCard
               key={course.id}
               course={course}
-              onEdit={() => setEditingId(course.id)}
-              onDelete={() => handleDelete(course.id)}
+              onEdit={() => setEditingId(String(course.id))}
+              onDelete={() => handleDelete(String(course.id))}
             />
           ))}
         </div>
