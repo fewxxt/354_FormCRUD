@@ -17,7 +17,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
   return (
     <article>
       <h1>{course.title} ({course.code})</h1>
-      <p>หน่วยกิต: {course.credits}</p>
+      <p>หน่วยกิต: {course.credit}</p>
       <p>ผู้สอน: {course.instructor}</p>
     </article>
   );
